@@ -1,0 +1,31 @@
+! Basic CKT file
+
+DIM
+   FREQ  MHZ
+   RES  OH
+   LNG  MM
+   ANG DEG
+
+CKT
+   MSUB ER=4.7 H=1.6 T=0.1 RHO=0 RGH=0
+   TAND TAND=0.014
+   MLIN 1 2 W=1.52 L=5
+   MLIN 2 3 W=1.30 L=16.87
+   MLIN 3 4 W=0.65 L=17.22
+   MLIN 4 5 W=0.43 L=17.55
+   RES 5 0 R=100
+   DEF1P 1 Z_Transf
+
+
+FREQ
+   SWEEP 50 4000 10
+
+OUT
+   Z_Transf DB[S11] GR1
+
+GRID
+   RANGE 50 4000 100
+   GR1 -30 0 5
+ 
+ 
+ 

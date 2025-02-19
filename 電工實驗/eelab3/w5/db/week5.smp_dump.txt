@@ -1,0 +1,9 @@
+
+State Machine - |A2D_Controller|cs
+Name cs.101 cs.100 cs.011 cs.010 cs.001 cs.000 
+cs.000 0 0 0 0 0 0 
+cs.001 0 0 0 0 1 1 
+cs.010 0 0 0 1 0 1 
+cs.011 0 0 1 0 0 1 
+cs.100 0 1 0 0 0 1 
+cs.101 1 0 0 0 0 1 

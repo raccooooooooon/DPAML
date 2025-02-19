@@ -1,0 +1,70 @@
+$comment
+	File created using the following command:
+		vcd file week4.msim.vcd -direction
+$end
+$date
+	Wed Nov 08 21:10:37 2023
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module clkand_vlg_vec_tst $end
+$var reg 1 ! ch $end
+$var reg 1 " ed $end
+$var wire 1 # m_clk $end
+
+$scope module i1 $end
+$var wire 1 $ gnd $end
+$var wire 1 % vcc $end
+$var wire 1 & unknown $end
+$var tri1 1 ' devclrn $end
+$var tri1 1 ( devpor $end
+$var tri1 1 ) devoe $end
+$var wire 1 * ~QUARTUS_CREATED_GND~I_combout $end
+$var wire 1 + ch~input_o $end
+$var wire 1 , ed~input_o $end
+$var wire 1 - m_clk~0_combout $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+0$
+1%
+x&
+1'
+1(
+1)
+0*
+0+
+0,
+0-
+$end
+#210000
+1"
+1,
+#430000
+1!
+0"
+1+
+0,
+1-
+1#
+#660000
+1"
+1,
+0-
+0#
+#930000
+0!
+0"
+0+
+0,
+#1000000

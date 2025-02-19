@@ -1,0 +1,9 @@
+module mend(s, ed);
+//input
+input [7:0]s;
+//output
+output wire ed;
+
+assign ed = &s;
+
+endmodule

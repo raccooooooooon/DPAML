@@ -1,0 +1,21 @@
+|SMCtrl
+clk => cs~1.DATAIN
+reset => ns.001.OUTPUTSELECT
+reset => ns.010.OUTPUTSELECT
+reset => ns.011.OUTPUTSELECT
+reset => ns.100.OUTPUTSELECT
+reset => cs.000.DATAIN
+dir => Selector1.IN3
+dir => Selector2.IN3
+dir => Selector3.IN3
+dir => Selector0.IN4
+dir => Selector0.IN2
+dir => Selector1.IN1
+dir => Selector2.IN1
+dir => Selector3.IN1
+SMC[0] << SMC.DB_MAX_OUTPUT_PORT_TYPE
+SMC[1] << SMC.DB_MAX_OUTPUT_PORT_TYPE
+SMC[2] << SMC.DB_MAX_OUTPUT_PORT_TYPE
+SMC[3] << SMC.DB_MAX_OUTPUT_PORT_TYPE
+
+

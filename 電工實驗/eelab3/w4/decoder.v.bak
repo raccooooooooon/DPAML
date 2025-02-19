@@ -1,0 +1,15 @@
+module decoder(s, dout);
+//input
+input [2:0]s;
+//output
+output reg [5:0]dout;
+
+always@(s) 
+	case(s)
+		3'b000: dout<= 6'd2;	// 1/32 note
+		3'b001: dout<= 6'd4;	// 1/16 note
+		3'b010: dout<= 6'd6;	// 1/8 note
+		3'b011: dout<= 6'd8;	// 1/8 note
+		default: dout<= 6'd2;
+	endcase
+endmodule

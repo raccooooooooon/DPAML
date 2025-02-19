@@ -1,0 +1,8 @@
+|one_shot
+clk => cs~1.DATAIN
+clk_i => ns.01.DATAB
+clk_i => Selector1.IN2
+clk_i => Selector0.IN1
+s <= <GND>
+
+

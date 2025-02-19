@@ -1,0 +1,12 @@
+module DivNSel(sel, DivN);
+input [1:0] sel;
+output [31:0] DivN;
+
+always @(sel)
+	case(sel)
+		2'b00: DivN <= 32'd64000;
+		2'b01: DivN <= 32'd128000;
+		2'b10: DivN <= 32'd256000;
+		default: DivN <= 32'd512000;
+	endcase
+endmodule

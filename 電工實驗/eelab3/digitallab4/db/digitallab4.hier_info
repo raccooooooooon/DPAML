@@ -1,0 +1,15 @@
+|control
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+clk_25k => start~reg0.CLK
+clk_25k => str~reg0.CLK
+clk_25k => count[0].CLK
+clk_25k => count[1].CLK
+clk_25k => count[2].CLK
+clk_25k => count[3].CLK
+start <= start~reg0.DB_MAX_OUTPUT_PORT_TYPE
+str <= str~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

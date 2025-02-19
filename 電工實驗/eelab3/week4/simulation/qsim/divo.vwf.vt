@@ -1,0 +1,228 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "11/08/2023 18:34:18"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          divo
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module divo_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg fin;
+reg reset;
+reg [31:0] tone;
+// wires                                               
+wire fout;
+
+// assign statements (if any)                          
+divo i1 (
+// port map - connection between master ports and signals/registers   
+	.fin(fin),
+	.fout(fout),
+	.reset(reset),
+	.tone(tone)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// fin
+always
+begin
+	fin = 1'b0;
+	fin = #5000 1'b1;
+	#5000;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b0;
+	reset = #500000 1'b1;
+	reset = #240000 1'b0;
+end 
+// tone[ 31 ]
+initial
+begin
+	tone[31] = 1'b0;
+end 
+// tone[ 30 ]
+initial
+begin
+	tone[30] = 1'b0;
+end 
+// tone[ 29 ]
+initial
+begin
+	tone[29] = 1'b0;
+end 
+// tone[ 28 ]
+initial
+begin
+	tone[28] = 1'b0;
+end 
+// tone[ 27 ]
+initial
+begin
+	tone[27] = 1'b0;
+end 
+// tone[ 26 ]
+initial
+begin
+	tone[26] = 1'b0;
+end 
+// tone[ 25 ]
+initial
+begin
+	tone[25] = 1'b0;
+end 
+// tone[ 24 ]
+initial
+begin
+	tone[24] = 1'b0;
+end 
+// tone[ 23 ]
+initial
+begin
+	tone[23] = 1'b0;
+end 
+// tone[ 22 ]
+initial
+begin
+	tone[22] = 1'b0;
+end 
+// tone[ 21 ]
+initial
+begin
+	tone[21] = 1'b0;
+end 
+// tone[ 20 ]
+initial
+begin
+	tone[20] = 1'b0;
+end 
+// tone[ 19 ]
+initial
+begin
+	tone[19] = 1'b0;
+end 
+// tone[ 18 ]
+initial
+begin
+	tone[18] = 1'b0;
+end 
+// tone[ 17 ]
+initial
+begin
+	tone[17] = 1'b0;
+end 
+// tone[ 16 ]
+initial
+begin
+	tone[16] = 1'b0;
+end 
+// tone[ 15 ]
+initial
+begin
+	tone[15] = 1'b0;
+end 
+// tone[ 14 ]
+initial
+begin
+	tone[14] = 1'b0;
+end 
+// tone[ 13 ]
+initial
+begin
+	tone[13] = 1'b0;
+end 
+// tone[ 12 ]
+initial
+begin
+	tone[12] = 1'b0;
+end 
+// tone[ 11 ]
+initial
+begin
+	tone[11] = 1'b0;
+end 
+// tone[ 10 ]
+initial
+begin
+	tone[10] = 1'b0;
+end 
+// tone[ 9 ]
+initial
+begin
+	tone[9] = 1'b0;
+end 
+// tone[ 8 ]
+initial
+begin
+	tone[8] = 1'b0;
+end 
+// tone[ 7 ]
+initial
+begin
+	tone[7] = 1'b0;
+end 
+// tone[ 6 ]
+initial
+begin
+	tone[6] = 1'b0;
+end 
+// tone[ 5 ]
+initial
+begin
+	tone[5] = 1'b0;
+end 
+// tone[ 4 ]
+initial
+begin
+	tone[4] = 1'b1;
+end 
+// tone[ 3 ]
+initial
+begin
+	tone[3] = 1'b0;
+end 
+// tone[ 2 ]
+initial
+begin
+	tone[2] = 1'b1;
+end 
+// tone[ 1 ]
+initial
+begin
+	tone[1] = 1'b0;
+end 
+// tone[ 0 ]
+initial
+begin
+	tone[0] = 1'b0;
+end 
+endmodule
+

@@ -1,0 +1,31 @@
+module SMCtrl (clk, reset, dir, SMC);
+input clk, reset, dir;
+output reg[3:0] SMC;
+reg[2:0] ns, cs;
+
+always@(clk)
+	cs <= ns;
+	
+always@(reset or dir or cs)
+	if(reset) ns <= 3'd0;
+	else
+		case(cs)
+		3'd0: ns <= 3'd1;
+		3'd1: ns <= (dir)?3'd2:3'd4;
+		3'd2: ns <= (dir)?3'd3:3'd1;
+		3'd3: ns <= (dir)?3'd4:3'd2;
+		3'd4: ns <= (dir)?3'd1:3'd3;
+		default: ns <= 3'd0;
+		endcase
+		
+always@(cs)
+	case(cs)
+	3'd0: SMC <= 4'b0000;
+	3'd1: SMC <= 4'b1001;
+	3'd2: SMC <= 4'b0011;
+	3'd3: SMC <= 4'b0110;
+	3'd4: SMC <= 4'b1100;
+	default: SMC <= 4'b0000;
+	endcase
+	
+endmodule

@@ -1,0 +1,21 @@
+module AG(reset, m_clk, sel, addr_out);
+
+input reset, m_clk, sel;//1-bit input declaration
+output reg [7:0] addr_out;//8-bit output 
+
+reg [6:0] count;
+wire [7:0] _addr_out;
+
+always@(posedge m_clk or negedge reset)
+begin
+	if(reset == 0)
+		count<=7'b0;//when reset goes to 0, which is at the moment of the music start, clear the counting
+	else
+		count<=(count>=7'd127)?7'd0:count+1;//if counting to 127, which is the end of the given songs, restart the song, otherwise, keep counting
+end
+
+always@(negedge m_clk)
+	addr_out<={sel,count[6:0]};/*when m_clk signal is triggered, 
+	output the a 7-bit number with song selction as the first bit and the counting as the 0-6 bits*/
+
+endmodule

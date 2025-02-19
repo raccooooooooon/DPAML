@@ -1,0 +1,32 @@
+module A2D_Controller(clk, eoc, Cout);
+input clk, eoc;
+output reg [2:0] Cout; //ALE, start, g_d;
+
+reg [2:0] cs, ns;
+
+always @(posedge clk)
+	cs<=ns;
+	
+always @(cs or eoc)
+	case(cs)
+	3'd0: ns <= 3'd1;
+	3'd1: ns <= 3'd2;
+	3'd2: ns <= 3'd3;
+	3'd3: ns <= (eoc)?3'd3:3'd4;
+	3'd4: ns <= (eoc)?3'd5:3'd4;
+	3'd5: ns <= 3'd0;
+	default: ns <= 3'd0;
+	endcase
+	
+always @(cs)
+	case(cs)
+	3'd0: Cout <= 3'b000;
+	3'd1: Cout <= 3'b100;
+	3'd2: Cout <= 3'b010;
+	3'd3: Cout <= 3'b000;
+	3'd4: Cout <= 3'b000;
+	3'd5: Cout <= 3'b001;
+	default: Cout <= 3'b000;
+	endcase
+	
+endmodule

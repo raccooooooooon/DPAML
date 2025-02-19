@@ -1,0 +1,37 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "SMC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SMC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SMC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SMC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "dir",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,27 @@
+module TX_FSM(TDC,clk,start,reset,en,rst,os);
+input 		 clk,reset,start;
+input 		 TDC;
+output 		 en,rst;
+output [1:0] os;
+
+reg 	 [2:0] cs,ns;								//state
+
+always@(cs or clk or TDC or start) begin
+	case(cs)
+		3'd0:   ns <= 3'd1;						//reset stage
+		3'd1:   ns <= (!start)?3'd2:3'd1;	//wait push button
+		3'd2:   ns <= 3'd3;						//tran start bit
+		3'd3:   ns <= (TDC)   ?3'd4:3'd3;	//shift stage
+		3'd4:   ns <= 3'd1;						//stop bit
+		default:ns <= 3'd0;
+	endcase
+end
+
+always@(negedge clk)
+	cs <= (reset) ? ns:3'd0;					//state transition
+	
+assign rst = (cs==3'd3)  ? 1'b0:1'b1;		//counter rst output
+assign en  = (cs == 3'd3)? 1'b1:1'b0;		//shift reg enable output
+assign os  = (!cs)		 ? 2'd0:(cs[1:0]-2'd1);
+
+endmodule

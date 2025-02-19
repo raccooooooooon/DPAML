@@ -1,0 +1,151 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/eelab3/w5/simulation/qsim
+vA2D_Controller
+Z1 !s110 1701551053
+!i10b 1
+!s100 [GcmThXW6E<ZmK[R`kKQa2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I_o<Sm9`3EIMaaXKM`NgfA1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1701551052
+Z4 8week5.vo
+Z5 Fweek5.vo
+!i122 24
+L0 32 426
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z7 !s108 1701551053.000000
+Z8 !s107 week5.vo|
+Z9 !s90 -work|work|week5.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+n@a2@d_@controller
+vA2D_Controller_vlg_vec_tst
+R1
+!i10b 1
+!s100 P^zL;=P;X<fVi^f^z^ZnP2
+R2
+I;V=Cki=PoOAaeiPZaYZjj1
+R3
+R0
+w1701551051
+Z12 8ad_dff8.vwf.vt
+Z13 Fad_dff8.vwf.vt
+!i122 25
+L0 30 28
+R6
+r1
+!s85 0
+31
+R7
+Z14 !s107 ad_dff8.vwf.vt|
+Z15 !s90 -work|work|ad_dff8.vwf.vt|
+!i113 1
+R10
+R11
+n@a2@d_@controller_vlg_vec_tst
+vad_dff8
+!s110 1701801194
+!i10b 1
+!s100 I5UA@cboC1Bg>McL3Jo5>3
+R2
+IHz3o_m4iT?@ZRVLT5P5N60
+R3
+R0
+w1701801193
+R4
+R5
+!i122 26
+L0 32 542
+R6
+r1
+!s85 0
+31
+Z16 !s108 1701801194.000000
+R8
+R9
+!i113 1
+R10
+R11
+vad_dff8_vlg_vec_tst
+!s110 1701801195
+!i10b 1
+!s100 7FF7LK1W9FV^ZJ5>=XNOI2
+R2
+Io:3U`oFY8T;ZQKffhkB?k1
+R3
+R0
+w1701801192
+R12
+R13
+!i122 27
+L0 30 92
+R6
+r1
+!s85 0
+31
+R16
+R14
+R15
+!i113 1
+R10
+R11
+vdff8
+Z17 !s110 1701805245
+!i10b 1
+!s100 k3RRMEE?:49a?L?WJ7:i80
+R2
+ILdzRoMaDV=_5XMB5db@P@2
+R3
+R0
+w1701805244
+R4
+R5
+!i122 28
+L0 32 627
+R6
+r1
+!s85 0
+31
+Z18 !s108 1701805245.000000
+R8
+R9
+!i113 1
+R10
+R11
+vdff8_vlg_vec_tst
+R17
+!i10b 1
+!s100 M^aKHE:zb8V]E85D?co[63
+R2
+IC[WfCn=l0kPfNYmf[2?@43
+R3
+R0
+w1701805243
+8dff8.vwf.vt
+Fdff8.vwf.vt
+!i122 29
+L0 30 84
+R6
+r1
+!s85 0
+31
+R18
+!s107 dff8.vwf.vt|
+!s90 -work|work|dff8.vwf.vt|
+!i113 1
+R10
+R11

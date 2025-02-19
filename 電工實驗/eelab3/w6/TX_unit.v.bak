@@ -1,0 +1,81 @@
+module TX_unit(clk,start,reset,TData,tx);
+input 		 clk,reset,start;
+input  [7:0] TData;
+output reg	 tx;
+
+parameter WAITING_BIT = 1'b1;
+parameter START_BIT = 1'b0;
+parameter STOP_BIT = 1'b1;
+
+reg 	 [2:0] cs,ns;
+wire	 		 tdc, txd, _tx;
+reg	 [1:0] OS;
+reg			 count_rst, shift_en;
+
+//Tx control circuit
+always @(posedge clk)
+	cs<=ns;
+							//state
+
+always@(cs or reset or tdc or start) 
+if(reset==1'b0)
+	ns <= 3'd0;
+else
+	case(cs)
+		3'd0:   ns <= 3'd1;						//reset stage
+		3'd1:   ns <= (!start)?3'd2:3'd1;	//wait push button
+		3'd2:   ns <= 3'd3;						//tran start bit
+		3'd3:   ns <= (tdc)   ?3'd4:3'd3;	//shift stage
+		3'd4:   ns <= 3'd1;						//stop bit
+		default:ns <= 3'd0;
+	endcase
+
+
+//output control signal decoder
+always@(cs)
+	case(cs)
+	3'd0:begin
+		OS <= 2'b00;
+		count_rst <= 1'b1;
+		shift_en <= 1'b0;
+		end
+	3'd1:begin
+		OS <= 2'b00;
+		count_rst <= 1'b1;
+		shift_en <= 1'b0;
+		end
+	3'd2:begin
+		OS <= 2'b01;
+		count_rst <= 1'b1;
+		shift_en <= 1'b0;
+		end
+	3'd3:begin
+		OS <= 2'b10;
+		count_rst <= 1'b0;
+		shift_en <= 1'b1;
+		end
+	3'd4:begin
+		OS <= 2'b11;
+		count_rst <= 1'b1;
+		shift_en <= 1'b0;
+		end
+	default:begin
+		OS <= 2'b00;
+		count_rst <= 1'b1;
+		shift_en <= 1'b0;
+		end
+	endcase
+	
+count8 U0(count_rst, clk, tdc);
+
+TXshift U1(.load(start), .clk(clk), .Din(TData), .en(shift_en), .txd(txd));
+
+// mux circuit
+assign_tx = (OS[1])?(OS[0]?STOP_BIT:txd):
+				((OS[0])?START_BIT:WAITING_BIT);
+				
+
+always @(posedge clk) //latched tx signal
+	tx <= _tx;
+	
+endmodule

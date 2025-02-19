@@ -1,0 +1,656 @@
+Touchstone or Libra for Windows, Version 2.0
+Release Notes, Release 104, Build 019
+
+December 14, 1994
+
+This document contains information about installing Touchstone or
+Libra for Windows, configuring your system, the use of memory and
+swap files, and the most recent updates to the manual set.
+
+			   TABLE OF CONTENTS
+
+     I.    Installing Touchstone or Libra for Windows and the Software Key
+	      1. Rainbow SENTINEL Hardware Key
+	      2. Installing Touchstone or Libra from the DOS Prompt
+	      3. Installing Touchstone or Libra from the Program Manager
+	      4. Installing the Software Key from the DOS Prompt
+	      5. Installing the Software Key from the Program Manager
+     II.   Configuring Your System
+	      1. HIMEM
+	      2. FILES
+	      3. BUFFERS
+	      4. SHELL
+	      5. STACKS
+	      6. Sample CONFIG.SYS
+     III.  Notes on the MS-DOS Function SHARE.EXE
+     IV.   Memory and Swap Files
+     V.    Installing Win32s Directives
+     VI.   Win32s Operational Notes
+	      1. Maximized MDI Window may hide dialog box
+	      2. Maximized MDI Window will prevent launch of online Help
+	      3. Maximized MDI Window and the Alt Tab Speed Key
+     VII.  Transistor Data File Directory
+     VIII. Corrections to the Manual Set
+	      1. Circuit Element Catalog
+		 A. TAPIND2
+		 B. DPWRSMP and Test Point (TP) elements
+		 D. Microstrip Elements
+		 E. VCVS Element
+	      2. Applications Manual
+		 A. Chapter 10 Corrections
+	      3. Reference Manual
+		 A. Tune Bar Commands
+		 B. Collate Copies command
+		 C. Screen to ClipBoard command
+		 D. Window to ClipBoard command
+		 E. RF Sweep command
+		 F. Layout command
+		 G. Grid Display command
+		 H. Text > Background Color command
+		 I. Text > Font command
+		 J. Options > Sound command
+		 K. View Menu
+		 L. Autoranging               
+
+**********************************************************************
+
+I. Installing Touchstone or Libra for Windows and the Software Key
+
+Touchstone and Libra for Windows, version 2.0, run on Windows 3.1,
+using the Microsoft Win32s operating subsystem. This Operating Subsysten
+is included on the Libra for Windows and Touchstone for Windows disk
+ship set and is instaled when you install the application.
+
+When you launch the Setup program, the operating system is automatically 
+detected.  If you launched from Windows 3.1, the required Win32s subsystem
+will be installed in your Windows 3.1 Directory.
+
+The Touchstone or Libra for Windows distribution set consists of three
+3.5-inch, high-density floppy disks, four transistor S-parameter data files
+disks plus a software key distribution disk, which may be supplied
+separately.
+
+In addition, a Rainbow SENTINEL SuperPro hardware key must be
+installed or the program will launch in Demo mode, providing limited
+functions and the ability to read only coded .cky files.
+
+1.  To install the Rainbow hardware key:
+	
+    If your operating system is 16-bit Windows 3.1, simply plug the
+    hardware key into the LPT1 parallel port.
+   
+    If your operating system is 32-bit Windows, you must install
+    the Rainbow SENTINEL SuperPro driver.  Refer to the text file,
+    rainbow.txt, which is contained on disk 3, for instructions on how
+    to do this.
+
+2.  To install Touchstone or Libra for Windows (plus LineCalc, TS2ACAD,
+    and the S- parameter transistor data files) from the MS-DOS prompt:
+     
+    A.  With the computer on, insert Disk 1, the Install Disk, in the
+	appropriate drive.
+    B.  At the MS-DOS prompt, type the drive letter that contains the
+	Install Disk, followed by a colon (:); then press Return.
+	For example: C> a:
+    C.  Type "win setup" and press Return.
+    D.  Windows 3.1 will be launched and the setup program loaded.
+    E.  Follow the on-screen prompts to install the additional program disks.
+
+3.  To install Touchstone or Libra for Windows (plus LineCalc, TS2ACAD,
+    and the S- parameter transistor data files) from the Windows
+    Program Manager:
+    
+    A.  Select Run from the File menu.
+    B.  Enter "A:\setup" in the Command Line box, where "A" is the logical
+	drive letter of the floppy drive you are using.
+    C.  Choose the OK button.
+
+4.  To install the software key from the MS-DOS prompt:
+   
+    A.  With the computer on, insert the software key disk in the appropriate drive.
+    B.  At the MS-DOS prompt, type the drive letter that contains the disk,
+	followed by a colon (:); then press Return.
+	For example: C> a:
+    C.  Type "win eesofkey libra" and press Return.
+
+5.  To install the software key from the Windows Program Manager:
+   
+    A.  Choose Run from the File menu.
+    B.  Enter "a:\eesofkey libra" in the Command Line dialog box.
+    C.  Choose the OK button.
+
+    The file eesof.key is installed to the ...\eesofwin\program directory.
+
+Note: Verify that the serial number on the hardware key matches
+    the serial number indicated on the software key distribution disk.
+    If the serial numbers of the two keys do not match, the program will
+    launch in Demo mode.
+
+
+*********************************************************************
+
+II. Configuring Your System
+
+Note: The following does not apply if you are using the Windows NT
+operating system.
+
+At an absolute minimum, your CONFIG.SYS file should contain the
+following command lines:
+
+1.  A command line for an extended-memory manager such as HIMEM.
+
+	Examples: DEVICE=C:\WINDOWS\HIMEM.SYS
+
+HP EEsof Windows-based product will not run using expanded memory.
+
+To use extended memory, all HP EEsof Windows-based products require HIMEM
+or a compatible memory manager.  When you installed Windows, the
+Microsoft Setup program installed HIMEM and added the HIMEM command
+line to your CONFIG.SYS file.  So, unless you deleted it, this necessary
+command line is probable already there.
+
+2.  A files command line setting files to at least 60; i.e., FILES=60.
+
+Touchstone or Libra for Windows requires a large number of file handles for
+such things as buffers, pens, brushes, fonts, storage files and data arrays.
+If you do not allocate enough file handles using the files command,
+the program may not operate properly.
+
+Keep in mind that each grid and each Performance and/or Sensitivity
+Histogram bin defined in the CKT file requires a handle.  If you intend
+to use a lot of grids and/or histogram bins, the files number should be
+increased accordingly.
+
+3.  The buffers command line should be set to BUFFERS=30.
+
+4.  A shell command line specifying which command interpreter is to be
+used when you switch to the MS-DOS prompt.  For example, if your
+MS-DOS files are located in the DOS directory on drive C, the shell
+command line should read:
+
+	SHELL=C:\DOS\COMMAND.COM /P /E:2048
+
+5.  A stacks command line setting 9 stacks of 512 bytes each.  For example:
+
+	STACKS=9,512
+
+When you installed Windows, the Microsoft Setup program added this
+stacks command line to your CONFIG.SYS file.  So, unless you deleted it,
+this necessary command line is probable already there.
+
+6.  An Example CONFIG.SYS file follows:
+
+	DEVICE=C:\DOS\SETVER.EXE
+	DOS=HIGH 
+	DEVICE=C:\WINDOWS\HIMEM.SYS 
+	FILES=60
+	BUFFERS=30
+	BREAK=ON
+	SHELL=C:\DOS\COMMAND.COM /P /E:2048
+	STACKS=9,512
+
+
+*********************************************************************
+
+III.  Notes on the MS-DOS Function SHARE.EXE
+
+In a multitasking operating system such as Windows 3.x, there can be 
+file-sharing problems if an application allows multiple instances or leaves 
+files open.  A file-sharing utility is needed to restrict access to open 
+files and to temporarily deny another program access to those files, so that 
+one program is not trying to read a file at the same time another program is 
+trying to write to it.
+
+Windows for WorkGroups running in enhanced mode loads and uses a VxD 
+version of Microsoft's SHARE function called VSHARE.386.  VSHARE.386 is 
+loaded by a reference to device=vshare.386 in the [386Enh] block of the 
+Windows system.ini file. Although it is possible to run most programs without 
+SHARE, Microsoft does not recommend it. However, there may be a serious 
+problem with the SHARE environment switches.  
+
+If you do not specify enough space to store all the file names or enough 
+lock files, you may encounter a File Sharing Violation Error.
+
+In several of its release notes, Microsoft recommends setting 
+	space to 4096, and
+	locks to 500.
+
+Syntax: SHARE [/f:space][/L:locks]
+	   where
+	      space = storage area to record shared file names
+		      Each open file requires full path name + 11 bytes
+		      Default is 2048 bytes
+	      locks = Max number of file that can be locked. 
+		      Default is 20
+
+In a PRB relative to Access entitled "Low Number of Share Locks Can Cause 
+Error Messages", PSS ID Number Q96904, Microsoft states:
+
+    "Be sure that the number of share locks is set to 500 or more.  The number 
+    of share locks is set by the /L:xxxx parameter when SHARE.EXE is invoked, 
+    usually in the AUTOEXEC.BAT file, as follows:
+
+	    LOAD C:\DOS\SHARE.EXE /L:500
+
+    The Microsoft Access Setup program modifies your AUTOEXEC.BAT file and sets 
+    the number of share locks to 500, but some other program may alter that value.
+
+    Although 500 share locks are sufficient for most Microsoft Access 
+    applications, some applications may have problems related to the number of
+    share locks.  You may need to gradually increase the number of share locks 
+    until these problems disappear.  Try to add as few share locks as possible,
+    since each share lock uses memory."
+
+If the  number of lock files is set to some large value, the space allocated 
+to store the file names obviously must  be includes accordingly.  This value 
+should be the anticipated length of the full path file name + 11 times the 
+number of lock files allowed.
+
+The use of VSHARE.386 overcomes the not-enough-locks problem, since it 
+dynamically allocates the number of locks available based of the demand 
+for them.  
+
+
+*********************************************************************
+
+IV.  Memory and Swap Files
+
+Touchstone and Libra for Windows are written using 32-bit code and are
+compiled using the Microsoft Visual C++ 32-bit compiler into a single huge 
+segment containing both code and data.  When the programs are first 
+launched, this segment occupies about 7.5 Mbytes.
+
+As it runs simulations, arrays are created in the code/data segment, which
+cause it to grow.  The level of growth  depends on the circuit being simulated,
+the number of frequency points and measurements being made, and the number of
+variables being optimized or varied in a yield analysis.  10 to 12 Mbytes 
+is not unusual. An extremely large simulation can take 60 MBytes or more.
+
+The segment will grow up to all the available memory in your machine.
+
+Windows will keep giving Libra space by moving the code segments and
+resources of other programs (including Windows itself) to Swap Files
+(if you have defined them) until it can't do it any more.  At that point,
+Libra will probably crash.
+
+If you experience system crashes when running large simulations,
+optimizations, or yield analyses, close all other applications except 
+Touchstone or Libra for Windows and the Microsoft Windows Program Manager.
+
+If you still crash, increase the size of your Swap File.
+
+If you still crash, your only solution is to add more RAM memory
+
+It is recommended that you review the chapter in the Windows manual 
+concerning swap files.  A permanent swap file on your hard disk of at 
+least 8 Mbytes is recommended.
+
+Keep in mind that the memory indication presented in the  "About Program 
+Manager" box includes the virtual memory in the Swap File.  (To view this 
+box, select Help > About Program Manager.)
+
+V.  Installing Win32s Directives
+
+Before attempting to run your HP EEsof Windows software, you must verify that
+two lines were automatically inserted in the Windows system.ini file during 
+your program installation. The lines, which are required for the Win32s 
+Operating Subsystem to run, are as follows:
+
+[boot]
+device=mmsystem.dll winmm16.dll
+
+[386Enh]
+device=C:\WINDOWS\SYSTEM\WIN32S\w32s.386
+
+The "C:\WINDOWS" portion of the above string is the location of the Windows
+directory and may vary depending on where you actually installed Windows.
+
+Important notes: 
+
+    1.  Every time the installation program writes to the system.ini file, an 
+	automatic backup file called system.old is created. This file is saved 
+	to the "windows" directory of your root drive.
+
+    2,  Although the Touchstone or Libra for Windows installation program inserts 
+	these directives for you, there may be a problem caused by other 
+	applications that also use Win32s. These lines might be inserted in an 
+	inappropriate manner.
+
+    3.  The Win32s VxD directive w32s.386 must be loaded only once. If a 
+	reference to the w32s.386 VxD is included more than once, Windows will 
+	not start and will give the user an error message that the VxD has 
+	already been loaded.
+
+    4.  Microsoft's system.ini parser is not case-sensitive, so these directives 
+	can be in either upper or lower or mixed case.  It also doesn't care 
+	about leading blank spaces or spaces on either side of the equal sign 
+	following the key word "device".
+
+All of the following directives are valid in any combination of case:
+
+[386Enh]
+device=C:\WINDOWS\SYSTEM\WIN32S\w32s.386
+     device=C:\WINDOWS\SYSTEM\WIN32S\w32s.386
+device     =C:\WINDOWS\SYSTEM\WIN32S\w32s.386
+device=     C:\WINDOWS\SYSTEM\WIN32S\w32s.386
+device     =     C:\WINDOWS\SYSTEM\WIN32S\w32s.386
+
+The installation program for Touchstone or Libra for Windows looks for all 
+these variations of the w32s.386 directive trying to make sure that only one 
+valid one is included. However, some other program installing the Win32s 
+Operating  Subsystem may not have followed the rules and this directive could 
+be in the system.ini file in some unanticipated form.
+
+If, after installing Touchstone or Libra for Windows, Windows 3.1 will not 
+start and gives you the error message about a VxD being already loaded at 
+some address, review the system.ini file using any ASCII text editor, such as 
+EDIT.EXE.  If you find the w32s.386 directive included more than once, delete 
+one of the device=C:\WINDOWS\SYSTEM\WIN32S\w32s.386 statements and restart 
+Windows.  This should clear the problem.
+
+
+*********************************************************************
+
+VI. Win32s Operational Notes
+
+The problems listed below occur when using the Win32s Operating Subsystem, 
+which is necessary to convert the native 32-bit code used in Libra for 
+Windows to the 16-bit code used by Windows 3.1.
+
+These problems do not occur when using Microsoft Windows NT, Version 3.1.
+If they are a limitation for you, we suggest you use the 32-bit Microsoft 
+Windows NT instead of the 16-bit Windows 3.1.
+
+MDI stands for Multiple Document Interface.  Touchstone and Libra for Windows
+use the MDI protocol for the EditFile, SCN, GR and SC windows.  
+
+1.  Maximized MDI Window may hide dialog box 
+
+When operating under the Win32s Operating Subsystem, a maximized MDI window 
+may hide a Message or dialog box waiting for your input.  If the  program 
+seems to be hung, none of the visible title bars are highlighted  
+(i.e., active) and a "beep" sounds each time you press a key or click on the  
+mouse, try pressing "Alt". If there is a hidden message or dialog box under 
+the maximized MDI window, it should be brought to the top.
+
+
+2.  Maximized MDI Window will prevent launch of Help Window
+
+When operating under the Win32s Operating Subsystem, a maximized MDI
+window  prevents the Help system from being launched.  If you desire online
+help while any one of the MDI windows is maximized, it must first be restored.  
+This can be done be clicking on the double arrow in the upper right hand 
+corner of the MDI window.
+
+If you don't restore a maximized MDI window before invoking online help, 
+Touchstone or Libra for Windows will do it for you.
+
+3.  Maximized MDI Window and the "Alt Tab" O/S Speed Key
+
+When operating under the Win32s Operating Subsystem, the O/S speed key
+"Alt Tab", which can normally be used for switching between launched 
+applications, doesn't work properly if one of the MDI Windows is maximized.
+The Win32s O/S will hang.  
+
+The only way to recover from this hang is to restart the computer, either
+by turning it off and back on or by using the "Alt Ctrl Delete" key 
+combination.
+
+It is suggested that you restore any maximized MDI window before you use
+the "Alt Tab" key combination to switch between applications.
+
+If you don't restore a maximized MDI window, the Tools menu item in the 
+Touchstone or Libra for Windows Main Menu will do it for you.
+
+
+*********************************************************************
+
+VII.  Transistor Data File Directory
+	 
+When you install your Touchstone or Libra for Windows software, a set of 
+S-parameter data files from various manufacturers are installed under your 
+installation directory as follows: 
+		  .../eesofwin/tdata. 
+
+When you reference an S-parameter data file  (*.s?p) in a circuit file, the 
+data file must be located in this directory to successfully perform a 
+simulation.
+
+
+*********************************************************************
+
+VIII.  Corrections to Manual Set
+
+IMPORTANT:  The set of circuit file examples that are installed in the 
+example subdirectories on your system during program installation are the 
+most recent versions of these files.  They include the latest corrections 
+and more detailed annotations and comments than those shown in the 
+procedural chapters and the example appendices of the Touchstone & Libra
+for Windows Applications manual.
+
+
+1.  Circuit Element Catalog:  
+
+    A.  For the TAPIND2 element on page 12-25, the Range of Usage equation 
+	should  read as follows:
+	  "L is greater than or equal to (N1 + N2) * WD, 
+	   where WD is the wire diameter."
+
+    B.  Chapter 8, Measurement-Related Elements.
+	 
+	DPWRSMP element, page 8-2:
+	The scattering matrix for this element that is shown in the manual
+	is not complete.  The correct matrix is as follows:
+
+		   0  1  0  0
+		   1  0  0  0
+		   1  0  0  0
+		   0  1  0  0   
+     
+	TP element:
+	The test point element (TP_xxx), not included in the manual,  is
+	also available.
+
+	Syntax:  TP_xxx    n
+	Parameters:  _xxx  =      required identifier tag
+	n      =    node to which it is connected
+
+	Netlist Example:  TP_Ttest1   12
+	Element Type:  Electrical element model; symbolic test point
+	Model Basis: Ideal; Originator:  HP EEsof
+	Range of Usage:  Libra with Advanced Schematic option
+
+	TP Note 1:  This element is primarily intended for use with Libra in 
+	conjunction with the Advanced Schematic option.  Each user-named 
+	test-point element is interpreted by the program as a connection to a 
+	specific node in the circuit.  Thus, a unique test point name, rather 
+	than the number, identifies the nodes.
+
+	TP Note 2:  This element can be connected anywhere in the circuit and 
+	does not affect circuit performance.
+
+	TP Note 3:  A TP element name may be specified in place of a node 
+	number (as TP_xxx) in the HBCNTL block and in a nonlinear measurement 
+	specified in the OUT, OPT, YIELD, or OUTVAR block.
+
+    C.  Chapter 9, Microstrip Elements.
+
+	Several elements in this chapter include a note about impedance 
+	dispersion options, referring you to Chapter 2 of the same book.  The 
+	correct reference for this information should be to your Touchstone & 
+	Libra for Windows Reference manual, Chapter 10, Menus & Commands, in 
+	the sections titled "Commands for Element Model Options."
+
+    D.  On page 13-21, VCVS element, under Range of Usage, the Setting and 
+	Result columns shown for the R2 parameter should both show a value of 
+	zero (0).  The result is not infinity.
+
+2.  Applications Manual
+
+    A.  Chapter 10, Modifying Linear Circuit File for nonlinear measurements
+
+	In Chapter 10, in the section, "Modifying linear circuit file for 
+	nonlinear measurements," there are several corrections: 
+
+	On page 10-4, step 3. First line of the source block should read: 
+	       OSC1 VS_DVDD  20  0  DC=5 .
+
+	On page 10-5, the final sentence in step 5 should read: 
+	  "The power output at the fundamental PF, output spectrum PS, 
+	   and output voltage V, are also provided."
+
+	On page 10-6, step 1 in  the procedure to adjust Vin (bottom page) 
+	should read: 
+	  "Adjust the value of PWR while viewing GR2 and performing RF Sweep 
+	   in the split-screen mode."
+
+	On page 10-6, step 2 in  the procedure to adjust Vin  (bottom  page) 
+	should read: 
+	  "Change PWR until the MAG[R] is < 1.03."
+
+	On page 10-10, the zero reactance crossing value shown in the final 
+	paragraph on the page should be 16.55 GHz.
+   
+3.  Reference Manual
+ 
+    A.  Tune Bar Commands
+		
+	The Field Tuning commands to increase or decrease the values of 
+	tunable parameters in the tune bar are described on page 7-4. The 
+	command actions listed there are not correct. The correct uses of the 
+	tune bar buttons and the keyboard arrow key are as follows:
+
+	Clicking on the top arrow button on the tune bar  increases the 
+	selected parameter by  1%.
+ 
+	Clicking on the bottom arrow button on the tune bar decreases the 
+	selected parameter by  1%.
+
+	Pressing the Shift key while clicking on the top arrow button on the 
+	tune bar increases the selected parameter by  10%.
+
+	Pressing the Shift key while clicking on the bottom arrow button on 
+	the tune bar decreases the selected parameter by  10%.
+
+	Pressing the up-arrow key on the keyboard increases the selected
+	parameter by  1%.
+
+	Pressing the down-arrow key on the keyboard decreases the selected
+	parameter by  1%.
+
+	Additional tips:
+
+	   1.  If the Edit window is active and you wish to activate the 
+	       tune bar instead, press Enter.
+
+	   2.  You can move from left to right across the tune bar fields by 
+	       pressing the tab key or by clicking on the appropriate field.
+
+	   3.  To sweep the circuit after you have entered all desired new 
+	       parameter values,  either click on the tune bar or press Enter. 
+  
+    B.  File > Print > Collate Copies command
+	      
+	On page 10-8, the Collate Copies button in the Print dialog box is 
+	described.  This dialog box is accessed by selecting Print from the 
+	File menu. This command is not operative in Touchstone or Libra for 
+	Windows.
+
+    C.  Screen to ClipBoard Command
+
+	On page 10-9, please note that this command is a Windows Operating 
+	System command.  It cannot be invoked from the File Menu.  It can 
+	only be invoked from the keyboard by pressing either the PrintScreen 
+	or Alt-PrintScreen key. 
+
+    D.  Window to ClipBoard Command
+
+	On page 10-9, the notation "(Print Screen)" pertains to the Screen to
+	ClipBoard command, not the Window to ClipBoard Command.  The correct 
+	speed key for the Window to ClipBoard Command is Alt F12. Please note 
+	that this command is a Windows Operating System command.  It cannot 
+	be invoked from the File Menu.
+
+    E.  RF Sweep command
+       
+	On pages 10-17 and 10-21, the RF Sweep command is described. The 
+	first time you start the program, the graphical outputs will not be 
+	displayed as icons. The outputs will be displayed in a tiled 
+	arrangement. Options for bringing the outputs up as icons, in a 
+	cascaded arrangement,  or back to a tiled arrangement, are all
+	selected in the Grid Display command from the Options menu.
+
+    F.  Layout command
+
+	On pages 10-23 and 10-24, the commands in the Tools menu are 
+	described.  There is an additional command that can be selected. The 
+	Layout command brings up the TS2ACAD program, which is a 
+	netlist-to-DXF layout translator that is an optional purchase to 
+	Touchstone or Libra for Windows.
+
+    G.  Grid Display command
+
+	On page 10-26, the Grid Display command is described. This command 
+	allows you to pre-select the way your screen will be arranged to show 
+	graphic outputs following a sweep. The options available for this 
+	command are different from those shown. The three options are: 
+	
+	    1.  Tile After Sweep  - show each grid and tabular
+		data in separate sections of the screen
+	
+	    2.  Iconize After Sweep - bring up each grid
+		and the tabular data as a separate icon at the bottom of your 
+		screen
+	    
+	    3.  Cascade After Sweep - bring up all grid and tabular outputs in 
+		a cascaded arrangement
+
+    H.  Text > Background Color command
+
+	On pages 10-29 and 10-30, the Color dialog box used to modify the 
+	background colors of your text windows (Edit and SCN) is described. 
+	The box differs from the pictures and the description in the manual 
+	as follows:
+
+	    1.  The name of the  dialog has been changed to "Edit File and 
+		SCN Background Color Selection."   
+	    
+	    2.  The Define Custom Colors button, which formerly expanded the 
+		dialog box, has been removed. When the box first comes up, it is 
+		already in a wider format with additional fields, similar to 
+		the picture shown on page 10-30.
+ 
+	    3.  The display that was formerly called Color/Solid is now 
+		called SCN/Edit Background. This display shows you how a 
+		color that you have selected will appear in the SCN Window 
+		(left side of display) and the Edit Window right side of 
+		display). In some cases, the appearance will be the same. 
+
+    I.  Text > Font command
+    
+	On page  10-28, the dialog box used to modify the font attributes of 
+	your text windows (Edit and SCN) is described. In the illustration in 
+	the manual, the dialog box is labeled "Font." However, the current 
+	correct name for this dialog box is "Edit File and Screen Font 
+	Selection."
+
+    J.  Options > Sound command
+    
+	On page 10-24, the description of the menu choices for the Sound 
+	command shows five selections. In the current version of the program, 
+	only Muted and Beep sound settings are available from this menu.    
+
+    K.  View Menu       
+    
+	The View Menu is not included in Chapter 10, Menus & Commands, of the
+	Torchstone and Libra dor Windows Reference Manual.  For information 
+	on using this menu item, refer to Chapter 2, Before You Begin, of the
+	Touchstone & Libra Windows Getting Started Manual.
+	
+    L.  Autoranging
+
+	On pages 3-13/3-14 and 4-21/4-22 reference is made to Autoranging.
+	Autoranging is not implemented in Libra for Windows, Version 2.0.
+	
+
+			       

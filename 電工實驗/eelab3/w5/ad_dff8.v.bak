@@ -1,0 +1,12 @@
+module ad_dff8(data, clk, en, Q);
+	input [7:0] data;
+	input clk, en;
+	output reg [7:0] Q;
+	
+	always@(posedge clk)
+	begin
+		if(en)
+			Q <= data;
+	end
+			
+endmodule

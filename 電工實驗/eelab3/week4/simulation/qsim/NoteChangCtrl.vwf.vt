@@ -1,0 +1,112 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "11/08/2023 18:56:04"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          NoteChangCtrl
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module NoteChangCtrl_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [5:0] BDN;
+reg bclk;
+reg clk;
+reg reset;
+// wires                                               
+wire cp;
+
+// assign statements (if any)                          
+NoteChangCtrl i1 (
+// port map - connection between master ports and signals/registers   
+	.BDN(BDN),
+	.bclk(bclk),
+	.clk(clk),
+	.cp(cp),
+	.reset(reset)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+// BDN[ 5 ]
+initial
+begin
+	BDN[5] = 1'b0;
+end 
+// BDN[ 4 ]
+initial
+begin
+	BDN[4] = 1'b0;
+end 
+// BDN[ 3 ]
+initial
+begin
+	BDN[3] = 1'b0;
+	BDN[3] = #650000 1'b1;
+end 
+// BDN[ 2 ]
+initial
+begin
+	BDN[2] = 1'b0;
+	BDN[2] = #420000 1'b1;
+	BDN[2] = #230000 1'b0;
+end 
+// BDN[ 1 ]
+initial
+begin
+	BDN[1] = 1'b0;
+end 
+// BDN[ 0 ]
+initial
+begin
+	BDN[0] = 1'b1;
+	BDN[0] = #420000 1'b0;
+end 
+
+// bclk
+always
+begin
+	bclk = 1'b0;
+	bclk = #25000 1'b1;
+	#25000;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #5000 1'b1;
+	#5000;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b0;
+	reset = #240000 1'b1;
+	reset = #130000 1'b0;
+end 
+endmodule
+

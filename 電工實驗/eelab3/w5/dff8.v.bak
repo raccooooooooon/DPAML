@@ -1,0 +1,11 @@
+module dff8(data, clk, Q);
+	input [7:0] data;
+	input clk;
+	output reg [7:0] Q;
+	
+	always@(posedge clk)
+	begin
+		Q <= data;
+	end
+			
+endmodule

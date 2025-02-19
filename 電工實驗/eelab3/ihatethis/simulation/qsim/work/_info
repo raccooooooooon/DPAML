@@ -1,0 +1,203 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/eelab3/ihatethis/simulation/qsim
+vDivNSel
+Z1 !s110 1698035073
+!i10b 1
+!s100 boXSY7QBEO8l19bgYV4<13
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I=jnPVlVZj_f4IT];mL`ao0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1698035072
+Z5 8week3.vo
+Z6 Fweek3.vo
+!i122 70
+L0 32 717
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1698035073.000000
+Z9 !s107 week3.vo|
+Z10 !s90 -work|work|week3.vo|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+n@div@n@sel
+vDivNSel_vlg_vec_tst
+R1
+!i10b 1
+!s100 mnkV@1o6XT[g1H>JCl3m<2
+R2
+I`IfIlWgP0F_A71eD^^B_l1
+R3
+R0
+R4
+8DivNSel.vwf.vt
+FDivNSel.vwf.vt
+!i122 71
+L0 30 36
+R7
+r1
+!s85 0
+31
+R8
+!s107 DivNSel.vwf.vt|
+!s90 -work|work|DivNSel.vwf.vt|
+!i113 1
+R11
+R12
+n@div@n@sel_vlg_vec_tst
+vfDiv
+Z13 !s110 1698155725
+!i10b 1
+!s100 hG>R1O1U`6MmEzG4ldYUL1
+R2
+Img[z5:;HIYF@a>`_hU]MW1
+R3
+R0
+w1698155724
+R5
+R6
+!i122 74
+L0 32 4008
+R7
+r1
+!s85 0
+31
+Z14 !s108 1698155725.000000
+R9
+R10
+!i113 1
+R11
+R12
+nf@div
+vfDiv50MHzto1Hz
+Z15 !s110 1697077335
+!i10b 1
+!s100 LnjOkZHZ@;o4gz=?]ULM^0
+R2
+IM1BQKL6S]T4zNzPTiTDb00
+R3
+R0
+w1697077333
+R5
+R6
+!i122 4
+L0 32 2203
+R7
+r1
+!s85 0
+31
+Z16 !s108 1697077335.000000
+R9
+R10
+!i113 1
+R11
+R12
+nf@div50@m@hzto1@hz
+vfDiv50MHzto1Hz_vlg_vec_tst
+R15
+!i10b 1
+!s100 G?@g=G^[U<WYB4Nb;Yl<I2
+R2
+IJJNhlMz5G;5?JSaUVX9TU1
+R3
+R0
+w1697077331
+Z17 8SMCtrl.vwf.vt
+Z18 FSMCtrl.vwf.vt
+!i122 5
+L0 30 18
+R7
+r1
+!s85 0
+31
+R16
+Z19 !s107 SMCtrl.vwf.vt|
+Z20 !s90 -work|work|SMCtrl.vwf.vt|
+!i113 1
+R11
+R12
+nf@div50@m@hzto1@hz_vlg_vec_tst
+vfDiv_vlg_vec_tst
+R13
+!i10b 1
+!s100 :PGBe@Cmz:FzBbN<:6S_H0
+R2
+IS@Obz7OI=TIMakZbO1O4l1
+R3
+R0
+w1698155723
+R17
+R18
+!i122 75
+L0 30 20
+R7
+r1
+!s85 0
+31
+R14
+R19
+R20
+!i113 1
+R11
+R12
+nf@div_vlg_vec_tst
+vSMCtrl
+!s110 1698156068
+!i10b 1
+!s100 aJmAKMcclX6gGE8kJXc3`0
+R2
+I;TaV>ehEdmSZ6:455g?OK3
+R3
+R0
+w1698156068
+R5
+R6
+!i122 76
+L0 32 498
+R7
+r1
+!s85 0
+31
+!s108 1698156068.000000
+R9
+R10
+!i113 1
+R11
+R12
+n@s@m@ctrl
+vSMCtrl_vlg_vec_tst
+!s110 1698156069
+!i10b 1
+!s100 gBmSX=:Q5>Wgnk5cWDTZK0
+R2
+IZK7U@Xg1g3HOHJE9:P_8L0
+R3
+R0
+w1698156067
+R17
+R18
+!i122 77
+L0 30 53
+R7
+r1
+!s85 0
+31
+!s108 1698156069.000000
+R19
+R20
+!i113 1
+R11
+R12
+n@s@m@ctrl_vlg_vec_tst

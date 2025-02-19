@@ -1,0 +1,224 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "10/23/2023 12:28:47"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          fDiv
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module fDiv_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [31:0] DIVN;
+reg fin;
+// wires                                               
+wire fout;
+
+// assign statements (if any)                          
+fDiv i1 (
+// port map - connection between master ports and signals/registers   
+	.DIVN(DIVN),
+	.fin(fin),
+	.fout(fout)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// fin
+always
+begin
+	fin = 1'b0;
+	fin = #2500 1'b1;
+	#2500;
+end 
+// DIVN[ 31 ]
+initial
+begin
+	DIVN[31] = 1'b0;
+end 
+// DIVN[ 30 ]
+initial
+begin
+	DIVN[30] = 1'b0;
+end 
+// DIVN[ 29 ]
+initial
+begin
+	DIVN[29] = 1'b0;
+end 
+// DIVN[ 28 ]
+initial
+begin
+	DIVN[28] = 1'b0;
+end 
+// DIVN[ 27 ]
+initial
+begin
+	DIVN[27] = 1'b0;
+end 
+// DIVN[ 26 ]
+initial
+begin
+	DIVN[26] = 1'b0;
+end 
+// DIVN[ 25 ]
+initial
+begin
+	DIVN[25] = 1'b0;
+end 
+// DIVN[ 24 ]
+initial
+begin
+	DIVN[24] = 1'b0;
+end 
+// DIVN[ 23 ]
+initial
+begin
+	DIVN[23] = 1'b0;
+end 
+// DIVN[ 22 ]
+initial
+begin
+	DIVN[22] = 1'b0;
+end 
+// DIVN[ 21 ]
+initial
+begin
+	DIVN[21] = 1'b0;
+end 
+// DIVN[ 20 ]
+initial
+begin
+	DIVN[20] = 1'b0;
+end 
+// DIVN[ 19 ]
+initial
+begin
+	DIVN[19] = 1'b0;
+end 
+// DIVN[ 18 ]
+initial
+begin
+	DIVN[18] = 1'b0;
+end 
+// DIVN[ 17 ]
+initial
+begin
+	DIVN[17] = 1'b0;
+end 
+// DIVN[ 16 ]
+initial
+begin
+	DIVN[16] = 1'b0;
+end 
+// DIVN[ 15 ]
+initial
+begin
+	DIVN[15] = 1'b0;
+end 
+// DIVN[ 14 ]
+initial
+begin
+	DIVN[14] = 1'b0;
+end 
+// DIVN[ 13 ]
+initial
+begin
+	DIVN[13] = 1'b0;
+end 
+// DIVN[ 12 ]
+initial
+begin
+	DIVN[12] = 1'b0;
+end 
+// DIVN[ 11 ]
+initial
+begin
+	DIVN[11] = 1'b0;
+end 
+// DIVN[ 10 ]
+initial
+begin
+	DIVN[10] = 1'b0;
+end 
+// DIVN[ 9 ]
+initial
+begin
+	DIVN[9] = 1'b0;
+end 
+// DIVN[ 8 ]
+initial
+begin
+	DIVN[8] = 1'b0;
+end 
+// DIVN[ 7 ]
+initial
+begin
+	DIVN[7] = 1'b0;
+end 
+// DIVN[ 6 ]
+initial
+begin
+	DIVN[6] = 1'b0;
+end 
+// DIVN[ 5 ]
+initial
+begin
+	DIVN[5] = 1'b0;
+end 
+// DIVN[ 4 ]
+initial
+begin
+	DIVN[4] = 1'b0;
+end 
+// DIVN[ 3 ]
+initial
+begin
+	DIVN[3] = 1'b0;
+	DIVN[3] = #810000 1'b1;
+end 
+// DIVN[ 2 ]
+initial
+begin
+	DIVN[2] = 1'b1;
+	DIVN[2] = #200000 1'b0;
+	DIVN[2] = #410000 1'b1;
+	DIVN[2] = #200000 1'b0;
+end 
+// DIVN[ 1 ]
+initial
+begin
+	DIVN[1] = 1'b0;
+	DIVN[1] = #420000 1'b1;
+	DIVN[1] = #390000 1'b0;
+end 
+// DIVN[ 0 ]
+initial
+begin
+	DIVN[0] = 1'b0;
+end 
+endmodule
+

@@ -1,0 +1,6 @@
+|clkand
+ed => m_clk.IN0
+ch => m_clk.IN1
+m_clk <= m_clk.DB_MAX_OUTPUT_PORT_TYPE
+
+
