@@ -1,0 +1,51 @@
+% (1) 計算並實現 Rayleigh 分佈的 CDF
+rayleigh_CDF = @(x) 1 - exp(-x.^2);
+
+
+% (3) 產生隨機變數並繪製直方圖
+num_samples = 10^6;
+x_values = 0:0.01:4;
+
+% 產生隨機變數
+rayleigh_random_variables = sqrt(-log(1 - rand(num_samples, 1)));
+
+% (2) 定義平均值和變異數的計算函數
+s = std(rayleigh_random_variables)
+s = mean(rayleigh_random_variables)
+
+% 繪製直方圖
+figure;
+histogram(rayleigh_random_variables, 'Normalization', 'pdf', 'BinWidth', 0.01);
+hold on;
+
+% 繪製概率密度函數圖
+rayleigh_pdf = 2 * x_values .* exp(-x_values.^2);
+plot(x_values, rayleigh_pdf, 'r', 'LineWidth', 2);
+
+% 加上圖標題和標籤
+xlabel('隨機變數值');
+ylabel('機率密度函數');
+title('Rayleigh分佈的機率密度函數');
+legend('隨機變數直方圖', 'Rayleigh機率密度函數');
+
+% (4) 推導 Y=X² 的機率分佈
+% 如果 Y = X²，那麼 Y 的機率密度函數可以通過對 X 的機率密度函數進行變數變換得到
+% 推導出 Y 的機率密度函數為：p(y) = (1 / sqrt(y)) * exp(-y / 2), y >= 0
+
+% 產生 Y = X² 的隨機變數
+y_values = rand(num_samples, 1).^2;
+
+% 繪製 Y 的機率密度函數圖
+figure;
+histogram(y_values, 'Normalization', 'pdf', 'BinWidth', 0.01);
+hold on;
+
+% 推導的 Y 的機率密度函數
+y_pdf = (1 ./ sqrt(x_values)) .* exp(-x_values / 2);
+plot(x_values, y_pdf, 'r', 'LineWidth', 2);
+
+% 加上圖標題和標籤
+xlabel('隨機變數值');
+ylabel('機率密度函數');
+title('Y = X^2 的機率密度函數');
+legend('隨機變數直方圖', '推導的機率密度函數');
